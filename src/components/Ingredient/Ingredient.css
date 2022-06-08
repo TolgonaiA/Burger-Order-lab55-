@@ -1,0 +1,11 @@
+.Ingredient {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.IngredientImage {
+  max-width: 100px;
+  height: auto;
+  margin-right: 40px;
+}
