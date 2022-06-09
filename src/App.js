@@ -29,8 +29,6 @@ const App = () => {
 
 
 
-
-
   const getTotalPrice = () => {
     let totalPrice = 20;
     for (let ingredient of ingredients) {
@@ -67,7 +65,37 @@ const App = () => {
       return ingredient;
     })
 
-    setIngredients(ingredientsCopy)
+    setIngredients(ingredientsCopy);
+  };
+
+  const decreaseItem = (name, count) => {
+    const ingredientsCopy = ingredients.map(ingredient => {
+      if (count === 0) {
+        return ingredient;
+      } else if (ingredient.name === name) {
+        return {
+          ...ingredient,
+          count: ingredient.count - 1,
+        }
+      }
+      return ingredient;
+    })
+
+    setIngredients(ingredientsCopy);
+  };
+
+  const deleteItem = (name) => {
+    const ingredientsCopy = ingredients.map(ingredient => {
+      if (ingredient.name === name) {
+        return {
+          ...ingredient,
+          count: 0,
+        }
+      }
+      return ingredient;
+    })
+
+    setIngredients(ingredientsCopy);
   };
 
 
@@ -78,7 +106,9 @@ const App = () => {
           ingredients={ingredients}
           image={INGREDIENTS}
           onChangeInput={changeInput}
-          onAddItem={()=> addItem}
+          onAddClick={addItem}
+          onDecreaseClick={decreaseItem}
+          onDeleteClick={deleteItem}
         ></Ingredients>
       </div>
       <div className='Ingredients'>

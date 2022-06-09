@@ -3,14 +3,15 @@ import Ingredient from "../Ingredient/Ingredient";
 
 
 const Ingredients = (props) => {
-  console.log(props)
   return props.ingredients.map(element => (
     <Ingredient
     name={element.name}
     image={props.image.find(obj => obj.name === element.name).image}
     value={props.ingredients.find(obj => obj.name === element.name).count}
     changeInput={e => props.onChangeInput(e.target.value, element.name)}
-    addItem={props.onAddItem(element.name)}
+    onAddClick={() => props.onAddClick(element.name)}
+    onDecreaseClick={() => props.onDecreaseClick(element.name, element.count)}
+    onDeleteClick={() => props.onDeleteClick(element.name)}
     >
 
     </Ingredient>
