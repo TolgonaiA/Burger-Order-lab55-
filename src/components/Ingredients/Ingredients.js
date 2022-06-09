@@ -3,8 +3,9 @@ import Ingredient from "../Ingredient/Ingredient";
 
 
 const Ingredients = (props) => {
-  return props.ingredients.map(element => (
+  return props.ingredients.map((element, index) => (
     <Ingredient
+    key={index}
     name={element.name}
     image={props.image.find(obj => obj.name === element.name).image}
     value={props.ingredients.find(obj => obj.name === element.name).count}
@@ -13,7 +14,6 @@ const Ingredients = (props) => {
     onDecreaseClick={() => props.onDecreaseClick(element.name, element.count)}
     onDeleteClick={() => props.onDeleteClick(element.name)}
     >
-
     </Ingredient>
   ))
 };

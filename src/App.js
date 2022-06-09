@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import {nanoid} from 'nanoid';
 import TotalPrice from './components/TotalPrice/TotalPrice';
-
+import Ingredients from './components/Ingredients/Ingredients';
+import IngredientImage from './components/IngredientImage.js/IngredientImage';
 import './App.css';
 import './burger.css';
 import meatImage from './assets/meat.png';
 import cheeseImage from './assets/cheese.jpg';
 import saladImage from './assets/salad.jpg';
 import baconImage from './assets/bacon.jpg';
-import Ingredients from './components/Ingredients/Ingredients';
+
 
 
 const INGREDIENTS = [
@@ -98,6 +99,13 @@ const App = () => {
     setIngredients(ingredientsCopy);
   };
 
+  let content = [];
+  for (let i = 0; i < ingredients.length; i++) {
+    for (let j = 0; j < ingredients[i].count; j++){
+      content.push(<IngredientImage name={ingredients[i].name} />)
+    }
+  }
+
 
   return (
     <div className='Container'>
@@ -117,6 +125,7 @@ const App = () => {
             <div className="Seeds1"></div>
             <div className="Seeds2"></div>
           </div>
+            {content}
           <div className="BreadBottom"></div>
         </div>
         <TotalPrice getTotalPrice={getTotalPrice()}/>
