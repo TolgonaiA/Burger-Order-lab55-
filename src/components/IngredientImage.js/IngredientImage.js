@@ -9,9 +9,4 @@ const IngredientImage = (props) => {
 };
 
 
-
-
-
-
-
 export default IngredientImage;

@@ -9,7 +9,7 @@ const Counter = (props) => {
       <input type='text' value={props.value} className='CounterInput' onChange={props.onChangeInput}></input>
       <button className='CounterButton' onClick={props.onAddClick}>+</button>
       <button className='CounterButton' onClick={props.onDecreaseClick}>-</button>
-      <button className='CounterButton' onClick={props.onDeleteClick}>delete</button>
+      <button className='CounterButton btnDelete' onClick={props.onDeleteClick}></button>
     </div>
   )
 }

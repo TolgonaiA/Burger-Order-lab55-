@@ -9,6 +9,17 @@
 .Ingredients {
   width: 45%;
   height: auto;
-  border: 1px solid black;
+  border: 2px solid rgba(0,0,0,0.5);
+  box-shadow: 3px 2px 4px rgba(0,0,0,0.3) inset;
   padding: 20px;
+  border-radius: 20px;
+}
+
+.BurgerImage {
+  display: flex;
+  flex-direction: column;
+}
+
+.BurgerPic {
+  width: 50% !important;
 }

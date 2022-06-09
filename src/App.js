@@ -102,7 +102,7 @@ const App = () => {
   let content = [];
   for (let i = 0; i < ingredients.length; i++) {
     for (let j = 0; j < ingredients[i].count; j++){
-      content.push(<IngredientImage name={ingredients[i].name} />)
+      content.push(<IngredientImage key={i*j} name={ingredients[i].name} />)
     }
   }
 
@@ -119,8 +119,8 @@ const App = () => {
           onDeleteClick={deleteItem}
         ></Ingredients>
       </div>
-      <div className='Ingredients'>
-        <div className="Burger">
+      <div className='Ingredients BurgerImage'>
+        <div className="Burger BurgerPic">
           <div className="BreadTop">
             <div className="Seeds1"></div>
             <div className="Seeds2"></div>
