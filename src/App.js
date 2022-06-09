@@ -28,6 +28,9 @@ const App = () => {
   ]);
 
 
+
+
+
   const getTotalPrice = () => {
     let totalPrice = 20;
     for (let ingredient of ingredients) {
@@ -36,8 +39,36 @@ const App = () => {
       totalPrice += amount;
     }
     return totalPrice;
-  }
+  };
 
+  const changeInput =(value, name) => {
+    const ingredientsCopy = ingredients.map(ingredient => {
+      if (ingredient.name === name) {
+        return {
+          ...ingredient,
+          count: value,
+        }
+      }
+      return ingredient;
+    })
+
+    setIngredients(ingredientsCopy)
+    
+  };
+
+  const addItem = (name) => {
+    const ingredientsCopy = ingredients.map(ingredient => {
+      if (ingredient.name === name) {
+        return {
+          ...ingredient,
+          count: ingredient.count + 1,
+        }
+      }
+      return ingredient;
+    })
+
+    setIngredients(ingredientsCopy)
+  };
 
 
   return (
@@ -46,6 +77,8 @@ const App = () => {
         <Ingredients 
           ingredients={ingredients}
           image={INGREDIENTS}
+          onChangeInput={changeInput}
+          onAddItem={()=> addItem}
         ></Ingredients>
       </div>
       <div className='Ingredients'>
