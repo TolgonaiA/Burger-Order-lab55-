@@ -102,7 +102,7 @@ const App = () => {
   let content = [];
   for (let i = 0; i < ingredients.length; i++) {
     for (let j = 0; j < ingredients[i].count; j++){
-      content.push(<IngredientImage key={i*j} name={ingredients[i].name} />)
+      content.push(<IngredientImage key={nanoid()} name={ingredients[i].name} />)
     }
   }
 
